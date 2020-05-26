@@ -7,6 +7,8 @@
               <div>{{data.book.title}}</div>
               <div>{{data.book.author}}</div>
               <img :src="`http://127.0.0.1:8000/img/${book.image}`" alt="cover image">
+              <router-link class="link-margin" :to="`/book/${data.book.id}/edit`">Editar</router-link>
+              <router-link class="link-margin" v-on:click.prevent="deleteBook">Eliminar</router-link>
           </div>
         </template>
       </ApolloQuery>
@@ -14,6 +16,8 @@
 </template>
 
 <script>
+import deleteBook from "@/graphql/mutations/DeleteBook.gql";
+
 export default {
     name:'Book',
     data() {
@@ -22,7 +26,19 @@ export default {
         }
     },
     methods: {
-        
+        deleteBook(){
+            this.$apollo.mutate({
+              mutation:deleteBook,
+              variables: {
+                id:this.$route.params.id,
+              },
+            }).then((data) => {
+              console.log(data)
+              this.$router.push('/')
+            }).catch((error) => {
+              console.error(error)
+            })
+        }
     },
     
 }

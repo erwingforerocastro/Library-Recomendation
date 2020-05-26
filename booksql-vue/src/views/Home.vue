@@ -1,11 +1,12 @@
 <template>
   <div>
+    <router-link to="/books/add">Agregar libro</router-link>
     <ApolloQuery :query="categoryQuery">
       <template slot-scope="{ result: { data, loading }, isLoading }">
-        <div v-if="isLoading">Loading...</div>
+        <div v-if="isLoading">Cargando...</div>
         <div v-else>
-          <a href="#" class="link-margin" @click.prevent="selectedCategoryMethod('all')">All</a>
-          <a href="#" class="link-margin" @click.prevent="selectedCategoryMethod('featured')">Featured</a>
+          <a href="#" class="link-margin" @click.prevent="selectedCategoryMethod('all')">Todo</a>
+          <a href="#" class="link-margin" @click.prevent="selectedCategoryMethod('featured')">Destacados</a>
           <a
             href="#"
             v-for="category of data.categories"
@@ -19,7 +20,7 @@
     <div v-if="selectedCategoryMethod=='all'">
       <ApolloQuery :query="query">
         <template slot-scope="{ result: { data, loading }, isLoading }">
-          <div v-if="isLoading">Loading...</div>
+          <div v-if="isLoading">Cargando...</div>
           <div v-else>
             <div 
             v-for="book of data.books" 
@@ -33,7 +34,7 @@
     <div v-else-if="selectedCategoryMethod=='featured'">
       <ApolloQuery :query="query" :variables="{f:false}">
         <template slot-scope="{ result: { data, loading }, isLoading }">
-          <div v-if="isLoading">Loading...</div>
+          <div v-if="isLoading">Cargando...</div>
           <div v-else>
             <div 
             v-for="book of data.booksByFeatured" 
@@ -54,7 +55,7 @@
         :variables="{id:selectedCategory}"
       >
         <template slot-scope="{ result: { data, loading }, isLoading }">
-          <div v-if="isLoading">Loading...</div>
+          <div v-if="isLoading">Cargando...</div>
           <div v-else>
             <div
               v-for="book of data.category.books"
@@ -76,6 +77,7 @@ import categoryQuery from "@/graphql/queries/Category.gql";
 import booksQuery from "@/graphql/queries/Books.gql";
 import categoriesQuery from "@/graphql/queries/Categories.gql";
 import booksFeaturedQuery from "@/graphql/queries/BooksFeatured.gql";
+
 export default {
   name: "Home",
   components: {},

@@ -12,10 +12,14 @@
         "apollo:start": "vue-cli-service apollo:start"
     },
     "dependencies": {
+        "bootstrap": "^4.5.0",
+        "bootstrap-vue": "^2.15.0",
         "core-js": "^3.6.4",
         "graphql-type-json": "^0.2.1",
         "lowdb": "^1.0.0",
+        "material-design-icons-iconfont": "^5.0.1",
         "mkdirp": "^0.5.1",
+        "roboto-fontface": "*",
         "shortid": "^2.2.8",
         "vue": "^2.6.11",
         "vue-apollo": "^3.0.0-beta.11",
@@ -28,7 +32,10 @@
         "@vue/cli-plugin-vuex": "~4.3.0",
         "@vue/cli-service": "~4.3.0",
         "graphql-tag": "^2.9.0",
+        "sass": "^1.19.0",
+        "sass-loader": "^8.0.0",
         "vue-cli-plugin-apollo": "~0.21.3",
+        "vue-cli-plugin-vuetify": "~2.0.5",
         "vue-template-compiler": "^2.6.11"
     }
 }
