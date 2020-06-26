@@ -10,6 +10,7 @@
 
 **Proyecto de Laravel con la integración de Vue.js y GraphQL**
 
+*Erwing FC @ 2020
 </div>
 
 
