@@ -1,5 +1,5 @@
 <div align="center">
-  <a target="__blank" href="https://www.lighthouse-php.com">
+  <a target="_blank" href="https://www.lighthouse-php.com">
     <img src="./logo.png" alt=lighthouse-logo" width="150" height="150">
   </a>
 </div>
