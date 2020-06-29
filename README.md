@@ -13,5 +13,5 @@
 Erwing FC @ 2020
 </div>
 
-*booksql-laravel - contiene el backend del aplicativo
-*booksql-vue - contiene el frontend del aplicativo
+* booksql-laravel - contiene el backend del aplicativo
+* booksql-vue - contiene el frontend del aplicativo
