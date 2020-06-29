@@ -31,6 +31,7 @@ php artisan serve
 
 ### References
 See [Laravel installation](https://laravel.com/docs/5.7).
+
 See [Lighthouse laravel](https://lighthouse-php.com/4.12/getting-started/installation.html).
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
