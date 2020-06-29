@@ -69,7 +69,7 @@ import editBook from "@/graphql/mutations/EditBook.gql";
 import booksQuery from "@/graphql/queries/Books.gql";
 
 export default{
-    name:'addBook',
+    name:'EditBook',
     data() {
         return {
             form:{

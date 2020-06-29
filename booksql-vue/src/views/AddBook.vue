@@ -1,51 +1,32 @@
 <template>
-<div class="container mt-4">
-  <h1>Crear libro</h1>
-    <b-form  @submit.prevent="onSubmit" @reset.prevent="onReset">
-      <b-form-group label="Titulo:">
-        <b-form-input
-          type="text"
-          v-model="form.title"
-          required
-          placeholder="ingrese el titulo"
-        ></b-form-input>
-      </b-form-group>
+<div class="create container mt-4">
+  <h1 class="mb-4">Crear libro</h1>
+    <form  @submit.prevent="onSubmit" @reset.prevent="onReset">
+      <div class="form-group" label="Titulo:">
+        <label class="font-bold mb-2" for="title">Titulo:</label>
+        <input type="text" v-model="form.title" required placeholder="ingrese el titulo">
+      </div>
 
-      <b-form-group  label="Autor:" >
-        <b-form-input
-         v-model="form.author"
-          required
-          placeholder="Ingrese el autor"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group  label="Imagen:">
-        <b-form-input
-          type="text"
-          v-model="form.image"
-          required
-        ></b-form-input>
-      </b-form-group>
-      <b-form-group  label="Descripcion:" >
-        <b-form-textarea
-          v-model="form.description"
-          required
-        ></b-form-textarea>
-      </b-form-group>
-      <b-form-group id="input-group-5" label="Link:" label-for="input-5">
-        <b-form-input
-          id="input-5"
-          v-model="form.link"
-          type="text"
-          required
-        ></b-form-input>
-      </b-form-group>
-      <b-form-group id="input-group-6">
-        <b-form-checkbox-group v-model="form.featured" id="checkboxes-4">
-          <b-form-checkbox value="true">Destacado</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group>
-       <b-form-group label="Categorias:" >
+      <div class="form-group"  label="Autor:" >
+        <label for="author" class="font-bold mt-2">Autor:</label>
+        <input type="text" v-model="form.author"  required  placeholder="Ingrese el autor">
+      </div>
+      <div class="form-group"  label="Imagen:">
+        <label for="imagen" class="font-bold mt-2">Imagen:</label>
+        <input type="text" v-model="form.image" required>
+      </div>
+      <div class="form-group"  label="Descripción:" >
+        <label for="descripción" class="font-bold mt-2">Descripción:</label>
+        <textarea v-model="form.description" required></textarea>
+      </div>
+      <div class="form-group" label="Link:">
+        <label for="link" class="font-bold mt-2">Link:</label>
+        <input v-model="form.link" type="text" required>
+      </div>
+      <div class="form-group" id="input-group-6">
+        <input type="checkbox" v-model="form.featured" id="checkboxes-4">
+      </div>
+       <div label="Categorias:" >
        <ApolloQuery :query="require('@/graphql/queries/Categories.gql')">
         <template slot-scope="{ result: { data, loading }, isLoading }">
         <div v-if="isLoading">Cargando...</div>
@@ -59,16 +40,16 @@
         </div>
       </template>
     </ApolloQuery>
-      </b-form-group>
+      </div>
       <b-button type="submit" variant="primary">Crear libro</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
-    </b-form>
+    </form>
   </div>
 </template>
 <script>
 import addBook from "@/graphql/mutations/AddBook.gql";
 export default{
-    name:'addBook',
+    name:'AddBook',
     data() {
         return {
             form:{
@@ -114,3 +95,24 @@ export default{
     },
 }
 </script>
+<style scoped>
+.form-group{
+  margin-bottom: 32px;
+}
+input[type="text"],textarea{
+  padding:10px 14px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}  
+label{
+  display: block;
+}
+button{
+  padding: 16px;
+  background: #027BFF;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+</style>

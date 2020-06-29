@@ -28,7 +28,10 @@ return [
          * Beware that middleware defined here runs before the GraphQL execution phase,
          * make sure to return spec-compliant responses in case an error is thrown.
          */
-        'middleware' => [\Fruitcake\Cors\HandleCors::class],
+        'middleware' => [
+            //\App\Http\Middleware\Cors::class,
+            \Fruitcake\Cors\HandleCors::class
+        ],
 
         /*
          * The `prefix` and `domain` configuration options are optional.

@@ -3,7 +3,7 @@ $id:Int!,
 $title:String!,
 $author:String!,
 $image:String,
-$description:text,
+$description:String,
 $link:String,
 $featured:Boolean,
 $category:Int!    
